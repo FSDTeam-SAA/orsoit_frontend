@@ -11,7 +11,9 @@ interface TickeDetailsDialogProps {
         _id: string;
         subject: string;
         name: string;
-        service: string;
+        serviceId: {
+            name: string
+        }
         issueDetails: string
         urgency: string
         file: string
@@ -41,7 +43,7 @@ export function TicketDetailsDialog({
     ticketData,
 }: TickeDetailsDialogProps) {
 
-    
+
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <DialogContent className="max-w-3xl border-0 bg-[#1A1A1A] p-0 text-white">
@@ -102,7 +104,7 @@ export function TicketDetailsDialog({
 
                                     <div className="flex flex-col sm:flex-row sm:items-center">
                                         <span className="font-bold text-white text-xl pr-2">Service:</span>
-                                        <span className="text-gray-300">{ticketData.service}</span>
+                                        <span className="text-gray-300">{ticketData.serviceId.name}</span>
                                     </div>
 
                                     <div className="flex flex-col sm:flex-row sm:items-center">
